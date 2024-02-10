@@ -14,7 +14,8 @@ let bigintValue: bigint = 100n;
 ```
 
 2) object types(객체 타입)
-```typescriptlet objectValue: object = { key: "value" };
+```typescriptlet
+objectValue: object = { key: "value" };
 let arrayValue: number[] = [1, 2, 3];
 let functionValue: Function = () => { console.log("Function called."); };
 ```
