@@ -15,14 +15,14 @@
 1. 변수 선언(타입 명시)
 
 ```typescript
-let name: string = "Alice";
+let name: string = 'Alice';
 const age: number = 30;
 
 name = 10; // 에러
 ```
 ```typescript
 // 타입이 두 개 이상일 시
-let name: string | numbrt = "Alice";
+let name: string | numbrt = 'Alice';
 ```
 
 <br /><br />
@@ -46,7 +46,7 @@ type User = {
 };
 
 let user: User = {
-  name: "Charlie",
+  name: 'Charlie',
   age: 25,
 };
 ```
@@ -64,7 +64,7 @@ interface Person {
 }
 
 let person: Person = {
-  name: "David",
+  name: 'David',
   age: 40,
 };
 ```
@@ -76,7 +76,7 @@ let person: Person = {
 ```typescript
 // 고정된 크기의 배열을 정의할 때 사용하며, 각 요소의 타입을 명시할 수 있다.
 
-let tuple: [string, number] = ["hello", 42];
+let tuple: [string, number] = ['hello', 42];
 ```
 
 <br /><br />
@@ -86,7 +86,7 @@ let tuple: [string, number] = ["hello", 42];
 ```typescript
 // 함수 매개변수에 타입을 지정할 수 있으며, 선택적(optional) 또는 기본값(default)을 설정할 수 있다.
 
-function greet(name: string, age?: number): void {
+function greet(name: string, age?: number): void { // age: number = 30 이런 식으로 기본값을 정할 수도 있다.
   console.log(`Hello, ${name}.`);
   if (age !== undefined) {
     console.log(`You are ${age} years old.`);
