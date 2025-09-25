@@ -1,25 +1,45 @@
-# 기본적인 config 설정을 해보자!(리액트나 뷰 사용시 별도 설정 필요)
+# 기본적인 타입스크립트 Config 설정
 
 <br />
+<br />
+
+* Typescript Config
+
+---
+
+```
+tsconfig.json은 TypeScript 프로젝트의 루트 디렉터리에 위치하며,
+컴파일러가 TypeScript 코드를 JavaScript로 변환할 때 사용하는 설정을 정의한다.
+```
+
+<br />
+<br />
+<br />
+<br />
+
+1. tsconfig.json 내용
 
 ```json
+// tsconfig.json
+
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true
-  }
+    "target": "es6", // 컴파일된 JS의 ECMAScript 버전을 ES6로 설정
+    "module": "esnext", // 모듈 시스템을 ESNext로 설정, 번들러와 호환
+    "jsx": "react-jsx", // JSX를 React 17+의 새로운 JSX Transform으로 처리
+    "moduleResolution": "bundler", // 번들러 방식으로 모듈 해석
+    "strict": true, // 엄격한 타입 검사 활성화
+    "esModuleInterop": true, // CommonJS와 ES 모듈 간 상호 운용성 개선
+    "allowSyntheticDefaultImports": true, // 기본 내보내기 없는 모듈의 기본 임포트 허용
+    "baseUrl": "./src", // 모듈 경로의 기준을 src 폴더로 설정
+    "paths": {
+      "@/*": ["*"] // @ 별칭으로 src 내 파일을 절대 경로로 참조
+    },
+    "outDir": "./dist", // 컴파일된 JS 파일을 dist 폴더에 저장
+    "sourceMap": true, // 디버깅용 소스 맵 파일 생성
+    "noEmitOnError": true // 컴파일 에러 시 JS 파일 생성 방지
+  },
+  "include": ["src/**/*"], // src 폴더 내 모든 TS/TSX 파일을 컴파일 대상으로
+  "exclude": ["node_modules", "dist"] // node_modules와 dist 폴더를 컴파일에서 제외
 }
-```
-```
-compilerOptions -> TypeScript 컴파일러에 대한 다양한 옵션을 지정하는 섹션
-
-target -> 컴파일된 JavaScript 파일의 ECMAScript 대상 버전을 지정 ex) es5 or es6
-
-module -> TypeScript 모듈을 JavaScript 모듈로 컴파일하는 방식을 지정 ex) commonjs
-
-strict -> 엄격한 유형 검사 옵션을 활성화한다. true로 설정하면 모든 엄격한 유형 검사 옵션을 켠다.
-
-esModuleInterop -> CommonJS 모듈과의 호환성을 허용하고 import/export 구문을 require 구문과 함께 사용할 수 있도록 한다.
 ```
